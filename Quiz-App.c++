@@ -1,5 +1,5 @@
 #include <iostream>
-#include<array>
+#include <array>
 using namespace std;
 
 struct QustestionStruct{
@@ -12,71 +12,66 @@ struct QustestionStruct{
 
 void questionPrint (QustestionStruct quest){
     int optionChosed;
-    cout << quest.question << endl;
+    cout << "Qus: " << quest.question << endl;
     for(int i = 0; i < 4; i++){
-        cout << i+1 << ". " << quest.options[i] << endl;
+        cout <<"  " << i+1 << ". " << quest.options[i] << endl;
     };
     cout << quest.inputLabel ;
     cin >> optionChosed;
-    if(quest.answer == optionChosed-1){
+    cout << "" << endl;
+    if(quest.answer == optionChosed){
         cout << "Correct!" << endl;
     }else{
         cout << "Incorrect!" << endl;
     }
-
+    cout << "" << endl;
 }
 
 int main(){
 
-    // questino 1
-    QustestionStruct ques1;
-    ques1.question = "Which one is not OOP Concept?";
-    ques1.options[0] = "Polymorphism";
-    ques1.options[1] = "Inheritance";
-    ques1.options[2] = "Differentiation";
-    ques1.options[3] = "Abstruction" ;
-    ques1.answer = 2;
+    QustestionStruct question[5];
 
-    // questino 2
-    QustestionStruct ques2;
-    ques2.question = "What is the Mother of all programming language?";
-    ques2.options[0] = "C++";
-    ques2.options[1] = "C#";
-    ques2.options[2] = "C--";
-    ques2.options[3] = "C" ;
-    ques2.answer = 3;
+    question[0] = {
+        "Which one is not OOP Concept?",
+        {
+            "Polymorphism", "Inheritance", "Differentiation", "Abstruction"
+        },
+        3
+    };
 
-    // questino 3
-    QustestionStruct ques3;
-    ques3.question = "Which is not an Operating System?";
-    ques3.options[0] = "Linux";
-    ques3.options[1] = "Windows";
-    ques3.options[2] = "ReactJS";
-    ques3.options[3] = "MacOS" ;
-    ques3.answer = 2;
+    question[1] = {
+        "What is the Mother of all programming language?",
+        {
+            "C++", "C#", "C--", "C"
+        },
+        4
+    };
 
-    // questino 4
-    QustestionStruct ques4;
-    ques4.question = "Who Created Linux?";
-    ques4.options[0] = "Bill Gates";
-    ques4.options[1] = "Linus Torvalds";
-    ques4.options[2] = "Mark Zukerberg";
-    ques4.options[3] = "Steve Jobs" ;
-    ques4.answer = 1;
+    question[2] = {
+        "Which is not an Operating System?",
+        {
+            "Linux", "Windows", "ReactJS","MacOS"
+        },
+        3
+    };
 
-    // questino 5
-    QustestionStruct ques5;
-    ques5.question = "1 Byte = ?";
-    ques5.options[0] = "8 Bit";
-    ques5.options[1] = "16 Bit";
-    ques5.options[2] = "32 Bit";
-    ques5.options[3] = "64 Bit" ;
-    ques5.answer = 0;
+    question[3] = {
+        "Who Created Linux?",
+        {
+            "Bill Gates", "Linus Torvalds", "Mark Zukerberg", "Steve Jobs"
+        },
+        2
+    };
 
-
-    questionPrint(ques1);
-    questionPrint(ques2);
-    questionPrint(ques3);
-    questionPrint(ques4);
-    questionPrint(ques5);
+    question[4] = {
+        "1 Byte = ?",
+        {
+            "8 Bit", "16 Bit", "32 Bit", "64 Bit"
+        },
+        1
+    };
+    
+    for(int i = 0; i < 5; i++){
+        questionPrint(question[i]);
+    };
 }
