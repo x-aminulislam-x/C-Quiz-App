@@ -1,1 +1,1 @@
-# C-Quiz-App
+# CPP-Quiz-App
